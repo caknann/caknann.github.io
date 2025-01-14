@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Animasi Cinta Bunga</title>
+<style>
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden; /* Menghilangkan scrollbar */
+}
+
+.container {
+  text-align: center;
+  color: white;
+}
+
+#heart {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.flowers {
+  /* Gaya untuk bunga dan rumput */
+  width: 300px;
+  height: 300px;
+}
+
+</style>
+</head>
+<body>
+
+<div id="page1" class="container">
+  <img id="heart" src="heart.png" alt="Heart"> <br>Klik love nya
+</div>
+
+<div id="page2" class="container" style="display:none;">
+  <div class="flowers">
+    <img src="flowers.png" alt="Flowers">
+    <h1 id="message"></h1>
+  </div>
+</div>
+
+<audio id="myAudio" src="your_song.mp3" preload="auto"></audio>
+
+
+<script>
+  const heart = document.getElementById('heart');
+  const page1 = document.getElementById('page1');
+  const page2 = document.getElementById('page2');
+  const message = document.getElementById('message');
+  const myAudio = document.getElementById('myAudio');
+  const messages = [
+    "Hallo Niza",
+    "Selamat ulang tahun",
+    "Aku ada bunga buat kamu nih",
+    "Kamu kan suka bunga",
+    "I Love You ❤️"
+  ];
+  let messageIndex = 0;
+
+  heart.addEventListener('click', () => {
+    page1.style.display = "none";
+    page2.style.display = "block";
+    message.textContent = messages[messageIndex];
+    myAudio.play(); // Memutar audio
+    messageIndex++;
+    if (messageIndex >= messages.length) messageIndex = 0;
+  });
+
+</script>
+
+</body>
+</html>
